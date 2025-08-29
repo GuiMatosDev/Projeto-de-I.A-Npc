@@ -1,22 +1,4 @@
-Conversa aberta. 1 mensagem não lida.
 
-Pular para o conteúdo
-Como usar o E-mail de Uninove com leitores de tela
-Esta versão não é mais compatível. Faça upgrade para um navegador aceito.
-
-2 de 58
-Versão 0.1 do Arcádia
-Externa
-Caixa de entrada
-
-Guilherme M. <guilhermematos.ofc@gmail.com>
-Anexos
-16:43 (há 2 horas)
-para Guilherme, mim
-
-
-1 anexo
-  •  Anexos verificados pelo Gmail
 #Blibiotecas
 import pygame
 
