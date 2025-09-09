@@ -1,14 +1,18 @@
 #Blibiotecas
 import pygame
 
+#linha - altura
+#coluna - largura
+
 #Configurações da Janela
 altura_tela = 1280
 largura_tela = 680
 tamanho_da_celula = 20
 
 #Configurações do Mapa
+mapa_linha = 100
 mapa_coluna = 100
-mapa_linhas = 100
+
 
 #Cores
 fundo = (30,30,30) 
@@ -17,16 +21,26 @@ cor_obstaculo = (180, 60, 60)
 cor_debug = (200, 200, 50)
 
 #Mapa
-def criar_mapa(colunas,linhas):
+def criar_mapa(linhas,colunas):
     
-    grid = [[ 0 for x in range(colunas)] for y in range(linhas)]
+    grid = [[ 0 for x in range(linhas)] for y in range(colunas)]
 
     #Futuras Criações de estruturas, reservar valores e alterar de zero para 1: Obstaculo
     
 
 #Visual    
-def desenhar_mapa(tela, grid, cam_coluna, cam_linha)
-                        
+def desenhar_mapa(tela, grid, cam_linha, cam_coluna):
+    tela.fill(fundo)
+
+    quant_linhas = largura_tela // tamanho_da_celula
+    quant_colunas = altura_tela // tamanho_da_celula
+
+    #Varrendo toda a janela e guardando em coordenadas para câmera
+    for y_linha in range(quant_linhas):
+        for x_coluna in range(quant_colunas):
+            mapa_cooernada_linha = cam_linha + y_linha
+            mapa_coordenada_coluna = cam_coluna + x_coluna
+            
         
 #Execução do programa
 def main():
@@ -37,9 +51,10 @@ def main():
     
     tela = pygame.display.set_mode((1280,680)) #Tamanho da Tela        
     
-    grid = criar_mapa(mapa_coluna, mapa_linha)
-    cam_coluna = 0
+    grid = criar_mapa(mapa_linha, mapa_coluna)
     cam_linha = 0
+    cam_coluna = 0
+    
 
     #Loop de Execução Global
     loop = True
@@ -54,7 +69,7 @@ def main():
                 loop = False
 
 
-        desenhar_mapa(tela, grid, cam_coluna, cam,linha)
+        desenhar_mapa(tela, grid, cam_linha, cam_coluna)
         pygame.display.flip() 
 
     pygame.quit()
