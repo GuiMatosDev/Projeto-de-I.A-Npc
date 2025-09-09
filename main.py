@@ -23,24 +23,34 @@ cor_debug = (200, 200, 50)
 #Mapa
 def criar_mapa(linhas,colunas):
     
-    grid = [[ 0 for x in range(linhas)] for y in range(colunas)]
+    grid = [[ 0 for y in range(linhas)] for x in range(colunas)]
 
     #Futuras Criações de estruturas, reservar valores e alterar de zero para 1: Obstaculo
     
+    return grid
 
 #Visual    
 def desenhar_mapa(tela, grid, cam_linha, cam_coluna):
+    
     tela.fill(fundo)
 
     quant_linhas = largura_tela // tamanho_da_celula
     quant_colunas = altura_tela // tamanho_da_celula
-
-    #Varrendo toda a janela e guardando em coordenadas para câmera
+    
+    
+    #Varrendo toda a janela e guardando em coordenadas
     for y_linha in range(quant_linhas):
         for x_coluna in range(quant_colunas):
-            mapa_cooernada_linha = cam_linha + y_linha
-            mapa_coordenada_coluna = cam_coluna + x_coluna
-            
+            mapa_linha_atual = cam_linha + y_linha
+            mapa_coluna_atual = cam_coluna + x_coluna
+
+            #Verifica se a célula está dentro do mapa
+            if (0 <= mapa_linha_atual < mapa_linha and 0 <= mapa_coluna_atual < mapa_coluna):
+
+                #
+                valor = grid[mapa_linha_atual][mapa_coluna_atual]
+                
+                
         
 #Execução do programa
 def main():
