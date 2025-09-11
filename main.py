@@ -10,8 +10,6 @@ tamanho_da_celula = 20
 mapa_coluna = 200
 mapa_linha = 200
 
-
-
 #Cores
 fundo = (30,30,30) 
 cor_da_grade = (100,100,100)
@@ -33,15 +31,12 @@ def desenhar_mapa(tela, grid, cam_coluna, cam_linha):
 
     quant_colunas = largura_tela // tamanho_da_celula
     quant_linhas = altura_tela // tamanho_da_celula
-    
-    
-    
+      
     #Varrendo toda a janela e guardando em coordenadas
     for x_coluna in range(quant_colunas):
         for y_linha in range(quant_linhas):
             janela_atual_coluna = cam_coluna + x_coluna
             janela_atual_linha = cam_linha + y_linha
-            
 
             #Verificando se a janela está dentro do mapa
             if (0 <= janela_atual_coluna < mapa_linha and 0 <= janela_atual_linha < mapa_coluna):
@@ -71,14 +66,22 @@ def main():
     
     #Start e Parâmetros 
     pygame.init()
-    pygame.display.set_caption("Path Neural")   #Nome Provisório
-    
-    tela = pygame.display.set_mode((largura_tela, altura_tela)) #Tamanho da Tela        
+
+    #fps
+    clock = pygame.time.Clock()
+
+    #Nome Provisório
+    pygame.display.set_caption("Path Neural")   
+
+    #Tamanho da Tela
+    tela = pygame.display.set_mode((largura_tela, altura_tela))         
+
     
     grid = criar_mapa(mapa_linha, mapa_coluna)
+
+    #Camera
     cam_linha = 0
     cam_coluna = 0
-    
 
     #Loop de Execução Global
     loop = True
@@ -95,9 +98,9 @@ def main():
             if teclas[pygame.K_RIGHT]:
                 cam_coula = cam_coluna + 1
             if teclas[pygame.K_UP]:
-                cam_linha = cam_linha - 1
-            if teclas[pygame.K_DOWN]:
                 cam_linha = cam_linha + 1
+            if teclas[pygame.K_DOWN]:
+                cam_linha = cam_linha - 1
                 
             #Fechando o Aplicativo
             if eventos.type == pygame.QUIT:
@@ -105,10 +108,23 @@ def main():
 
 
         desenhar_mapa(tela, grid, cam_coluna, cam_linha)
+        clock.tick(60)
         pygame.display.flip() 
 
     pygame.quit()
 
 #Iniciar Programa
 main()
+
+
+
+
+
+
+
+
+
+
+
+
 
