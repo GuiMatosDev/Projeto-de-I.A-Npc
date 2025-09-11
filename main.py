@@ -5,13 +5,13 @@ import pygame
 #coluna - largura
 
 #Configurações da Janela
-altura_tela = 1280
-largura_tela = 680
+altura_tela = 680 #Y
+largura_tela = 1280 #X
 tamanho_da_celula = 20
 
 #Configurações do Mapa
-mapa_linha = 100
-mapa_coluna = 100
+mapa_linha = 200
+mapa_coluna = 200
 
 
 #Cores
@@ -34,28 +34,41 @@ def desenhar_mapa(tela, grid, cam_linha, cam_coluna):
     
     tela.fill(fundo)
 
-    quant_linhas = largura_tela // tamanho_da_celula
-    quant_colunas = altura_tela // tamanho_da_celula
+    quant_linhas = altura_tela // tamanho_da_celula
+    quant_colunas = largura_tela // tamanho_da_celula
     
     
     #Varrendo toda a janela e guardando em coordenadas
     for y_linha in range(quant_linhas):
         for x_coluna in range(quant_colunas):
-            mapa_linha_atual = cam_linha + y_linha
-            mapa_coluna_atual = cam_coluna + x_coluna
+            janela_atual_linha = cam_linha + y_linha
+            janela_atual_coluna = cam_coluna + x_coluna
 
-            #Verifica se a célula está dentro do mapa
-            if (0 <= mapa_linha_atual < mapa_linha and 0 <= mapa_coluna_atual < mapa_coluna):
+            #Verificando se a janela está dentro do mapa
+            if (0 <= janela_atual_linha < mapa_linha and 0 <= janela_atual_coluna < mapa_coluna):
 
-                #
-                valor = grid[mapa_linha_atual][mapa_coluna_atual]
+                #Formação da janela atual em notação da grade matemática
+                janela_atual_coordenada = grid[janela_atual_linha][janela_atual_coluna]
+
+                #Criando a janela pela função rect para possibilitar o desenho
+                celula_y = y_linha * tamanho_da_celula
+                celula_x = x_coluna * tamanho_da_celula
+                rect = pygame.Rect(celula_x, celula_y, tamanho_da_celula, tamanho_da_celula)
+
+                #Desenhando de acordo com valor
+                if janela_atual_coordenada == 0:
+                    pygame.draw.rect(tela, fundo, rect)
+
+                #Desenhando a grade
+                pygame.draw.rect(tela, cor_da_grade, rect, 1)
+                
                 
                 
         
 #Execução do programa
 def main():
     
-    #Start e Parâtros 
+    #Start e Parâmetros 
     pygame.init()
     pygame.display.set_caption("Path Neural")   #Nome Provisório
     
