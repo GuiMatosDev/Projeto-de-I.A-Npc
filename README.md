@@ -7,10 +7,8 @@ A ideia central é criar um ambiente controlado, onde será possível observar c
 
 ## 🔮 Próximos Passos
 
-   
-- Estudar e integrar o algoritmo A* para movimentação dos NPCs  
-- Definir entidades do vilarejo (casas, moradores, terrenos)  
-- Desmembrar o arquivo main para estruturar o projeto  
+- Criação do Personagem que ira receber a ia
+- Terminar instruções de como clonar e executar o projeto
 
 ---
 
@@ -18,6 +16,18 @@ A ideia central é criar um ambiente controlado, onde será possível observar c
 
 - Python 3.11+  
 - Pygame  2.6+
+
+---
+
+## 🏗️ Estrutura do Projeto
+
+```
+├──READme.md        #Documentação
+├──config.py        #Configurações
+├──main.py          #Execução da Aplicação
+├──mapa.py          #Grade Lógica e Visual
+├──requerements.txt #Dependências
+```
 
 ---
 
