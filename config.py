@@ -12,3 +12,4 @@ fundo = (30,30,30)
 cor_da_grade = (100,100,100)
 cor_obstaculo = (180, 60, 60)
 cor_debug = (200, 200, 50)
+cor_personagem = (255, 0, 0) #Temporário
