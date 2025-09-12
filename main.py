@@ -4,7 +4,7 @@ import pygame
 #Configurações da Janela
 largura_tela = 1280 #X - Coluna
 altura_tela = 680 #Y - Largura
-tamanho_da_celula = 20
+tamanho_da_celula = 10
 
 #Configurações do Mapa
 mapa_coluna = 200
@@ -19,8 +19,9 @@ cor_debug = (200, 200, 50)
 #Mapa
 def criar_mapa(linhas,colunas):
     grid = [[ 0 for x in range(colunas)] for y in range(linhas)]
-
+    
     #Futuras Criações de estruturas, reservar valores e alterar de zero para 1: Obstaculo
+    grid[0][0] = 1
     
     return grid
 
@@ -77,7 +78,7 @@ def main():
     tela = pygame.display.set_mode((largura_tela, altura_tela))         
 
     
-    grid = criar_mapa(mapa_linha, mapa_coluna)
+    grid = criar_mapa(mapa_coluna, mapa_linha)
 
     #Camera
     cam_linha = 0
@@ -96,11 +97,11 @@ def main():
             if teclas[pygame.K_LEFT]:
                 cam_coluna = cam_coluna - 1
             if teclas[pygame.K_RIGHT]:
-                cam_coula = cam_coluna + 1
+                cam_coluna = cam_coluna + 1
             if teclas[pygame.K_UP]:
-                cam_linha = cam_linha + 1
-            if teclas[pygame.K_DOWN]:
                 cam_linha = cam_linha - 1
+            if teclas[pygame.K_DOWN]:
+                cam_linha = cam_linha + 1
                 
             #Fechando o Aplicativo
             if eventos.type == pygame.QUIT:
