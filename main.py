@@ -1,7 +1,8 @@
-#Blibiotecas
+#Importações
 import pygame
 from config import largura_tela, altura_tela, mapa_coluna, mapa_linha
 from mapa import criar_mapa, desenhar_mapa
+from npc import npc_campones
      
 #Execução do programa
 def main():
@@ -20,6 +21,7 @@ def main():
 
     
     grid = criar_mapa(mapa_coluna, mapa_linha)
+    npc_campones(5, 5) 
 
     #Camera
     cam_linha = 0
@@ -50,6 +52,7 @@ def main():
 
 
         desenhar_mapa(tela, grid, cam_coluna, cam_linha, mapa_coluna, mapa_linha)
+        npc_campones.desenhar(tela)
         clock.tick(60)
         pygame.display.flip() 
 

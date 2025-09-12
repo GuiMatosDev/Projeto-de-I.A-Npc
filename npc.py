@@ -1,34 +1,25 @@
 import pygame
-from config import cor_personagem
+from config import tamanho_da_celula
 
 class npc_campones:
-    def __init__(self, x, y, cor_personagem):
+    def __init__(self, x_coluna, y_linha):
 
-        #Parâmetros Básicos 
-        self.x = x
-        self.y = y
-        self.cor = cor_personagem
-        self.velocidade = 1
+        #Posição
+        self.x = x_coluna
+        self.y = y_linha
 
-    def desenhar(self, tela, tamanho_da_celula):
+        #Visual do personagem (temporáriamente: retângulo)
+        largura = tamanho_da_celula
+        altura = tamanho_da_celula * 2
+        self.cor = (0, 0, 255)
+        
 
-        #Desenho
-        pygame.draw.rect(
+    def desenhar(self, tela):
 
-            #Parametrôs para a criação do desenho pelo rect
-            tela,
-            self.cor_personagem,
-            (
-                self.x * tamanho_da_celula, #X
-                self.y * tamanho_da_celula, #Y
-                tamanho_da_celula,          #Largura
-                tamanho_da_celula           #Altura
-            )
-        )
+        #Posicão -> pixels
+        x = self.x * tamanho_da_celula
+        y = self.y * tamanho_da_celula - (self.altura - tamanho_da_celula)
 
-    def mover(self, direcao_x, direcao_y , grid, colisoes):
-
-        #Proxima posição
-        novo_x = self.x + direcao_x *  
-        novo_y = self.y
-
+        #Janela rect e desenho
+        rect = pygame.Rect(x, y, largura, altura)
+        pygame.draw.rect(tela, self.cor, rect)

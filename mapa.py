@@ -7,7 +7,7 @@ def criar_mapa(linhas,colunas):
     grid = [[ 0 for x in range(colunas)] for y in range(linhas)]
     
     #Futuras Criações de estruturas, reservar valores e alterar de zero para 1: Obstaculo
-    grid[0][0] = 1 #debub - excluir depois
+    #grid[0][0] = 1 debub - excluir depois
     
     return grid
 
