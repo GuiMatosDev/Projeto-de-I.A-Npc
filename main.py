@@ -2,26 +2,28 @@
 import pygame
 from config import largura_tela, altura_tela, mapa_coluna, mapa_linha
 from mapa import criar_mapa, desenhar_mapa
-from npc import npc_campones
+from npc import campones
      
 #Execução do programa
 def main():
     
-    #Start e Parâmetros 
+    #Start 
     pygame.init()
 
-    #fps
+    #Nome provisório
+    pygame.display.set_caption("Path Neural")
+
+    #Janela
+    tela = pygame.display.set_mode((largura_tela, altura_tela))
+
+    #Fps
     clock = pygame.time.Clock()
 
-    #Nome Provisório
-    pygame.display.set_caption("Path Neural")   
+    #Grade matemática
+    mapa = criar_mapa(mapa_coluna, mapa_linha)
 
-    #Tamanho da Tela
-    tela = pygame.display.set_mode((largura_tela, altura_tela))         
-
-    
-    grid = criar_mapa(mapa_coluna, mapa_linha)
-    npc_campones(5, 5) 
+    #Npc
+    npc_campones = campones(5, 5) 
 
     #Camera
     cam_linha = 0
@@ -29,10 +31,9 @@ def main():
 
     #Loop de Execução Global
     loop = True
-
     while loop:
 
-        #Eventos
+        #Checa os eventos
         for eventos in pygame.event.get():
 
             #Movimento da Camera pelo teclado
@@ -46,16 +47,23 @@ def main():
             if teclas[pygame.K_DOWN]:
                 cam_linha = cam_linha + 1
                 
-            #Fechando o Aplicativo
+            #Fechando o Loop
             if eventos.type == pygame.QUIT:
                 loop = False
 
+        #Desenha o mapa
+        desenhar_mapa(tela, mapa, cam_coluna, cam_linha, mapa_coluna, mapa_linha)
 
-        desenhar_mapa(tela, grid, cam_coluna, cam_linha, mapa_coluna, mapa_linha)
-        npc_campones.desenhar(tela)
+        #Desenha o npc
+        npc_campones.desenhar(tela, cam_coluna, cam_linha)
+
+        #Fps
         clock.tick(60)
+
+        #Executa o que foi processado
         pygame.display.flip() 
 
+    #Fechando o Aplicativo
     pygame.quit()
 
 #Iniciar Programa

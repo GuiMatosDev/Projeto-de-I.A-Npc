@@ -3,16 +3,15 @@ from config import largura_tela, altura_tela, tamanho_da_celula
 from config import fundo, cor_da_grade, cor_debug
 
 #Mapa
-def criar_mapa(linhas,colunas):
-    grid = [[ 0 for x in range(colunas)] for y in range(linhas)]
+def criar_mapa(colunas, linhas):
+    mapa = [[ 0 for x in range(colunas)] for y in range(linhas)]
     
-    #Futuras Criações de estruturas, reservar valores e alterar de zero para 1: Obstaculo
-    #grid[0][0] = 1 debub - excluir depois
+        #grid[0][0] = 1 debub - excluir depois
     
-    return grid
+    return mapa
 
 #Desenhando    
-def desenhar_mapa(tela, grid, cam_coluna, cam_linha, mapa_coluna, mapa_linha):
+def desenhar_mapa(tela, mapa, cam_coluna, cam_linha, mapa_coluna, mapa_linha):
     
     tela.fill(fundo)
 
@@ -29,7 +28,7 @@ def desenhar_mapa(tela, grid, cam_coluna, cam_linha, mapa_coluna, mapa_linha):
             if (0 <= janela_atual_coluna < mapa_linha and 0 <= janela_atual_linha < mapa_coluna):
 
                 #Formação da janela atual em notação da grade matemática
-                janela_atual_coordenada = grid[janela_atual_coluna][janela_atual_linha]
+                janela_atual_coordenada = mapa[janela_atual_coluna][janela_atual_linha]
 
                 #Criando a janela pela função rect para possibilitar o desenho
                 celula_x = x_coluna * tamanho_da_celula
