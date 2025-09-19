@@ -1,6 +1,6 @@
 import pygame
 from config import largura_tela, altura_tela, tamanho_da_celula
-from config import fundo, cor_da_grade, cor_debug
+from config import fundo, cor_da_grade, cor_debug, debug
 
 #Mapa
 def criar_mapa(colunas, linhas):
@@ -37,7 +37,7 @@ def desenhar_mapa(tela, mapa, cam_coluna, cam_linha, mapa_coluna, mapa_linha):
 
                 #Desenhando de acordo com valor
                 if janela_atual_coordenada == 0:
-                    pygame.draw.rect(tela, fundo, rect)
+                    pygame.draw.rect(tela, fundo, rect)                    
                 elif janela_atual_coordenada == 1: #Debug
                     pygame.draw.rect(tela, cor_debug, rect)
 

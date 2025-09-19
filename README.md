@@ -7,8 +7,13 @@ A ideia central é criar um ambiente controlado, onde será possível observar c
 
 ## 🔮 Próximos Passos
 
-- Criação do Personagem que ira receber a ia
+- Criação do npc 0 
+	- colocar movimentação básica em uma função mover e adaptar
+	- começar a implementação do algoritimo de busca 
 - Terminar instruções de como clonar e executar o projeto
+-Criação dos lugares do mapa: casas, praça, plantação
+	- desenvolver artes para npcs e cenários e entender como adaptar ao simulador
+
 
 ---
 
@@ -26,6 +31,7 @@ A ideia central é criar um ambiente controlado, onde será possível observar c
 ├──config.py        #Configurações
 ├──main.py          #Execução da Aplicação
 ├──mapa.py          #Grade Lógica e Visual
+├──npc.py	    #regras do personagem          
 ├──requerements.txt #Dependências
 ```
 

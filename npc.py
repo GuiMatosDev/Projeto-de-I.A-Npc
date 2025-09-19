@@ -12,18 +12,13 @@ class campones:
         self.largura = tamanho_da_celula
         self.altura = tamanho_da_celula * 2
         self.cor = (0, 0, 255)
-        
 
     def desenhar(self, tela, cam_coluna, cam_linha):
 
-        #Posicão para pixels
-        p_x = self.x - cam_coluna
-        p_y = self.y - cam_linha
+        #Posicão[x][y] para pixels na tela
+        x = (self.x - cam_coluna) * tamanho_da_celula
+        y = (self.y - cam_linha) * tamanho_da_celula - (self.altura - tamanho_da_celula)
     
-        screen_x = p_x * tamanho_da_celula
-        screen_y = p_y * tamanho_da_celula - (self.altura - tamanho_da_celula)
-
-
         #Janela rect e desenho
-        rect = pygame.Rect(screen_x, screen_y, self.largura, self.altura)
+        rect = pygame.Rect(x, y, self.largura, self.altura)
         pygame.draw.rect(tela, self.cor, rect)

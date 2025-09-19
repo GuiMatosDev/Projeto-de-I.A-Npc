@@ -23,7 +23,9 @@ def main():
     mapa = criar_mapa(mapa_coluna, mapa_linha)
 
     #Npc
-    npc_campones = campones(5, 5) 
+    npc_campones = campones(5, 5)
+
+    
 
     #Camera
     cam_linha = 0
@@ -35,8 +37,9 @@ def main():
 
         #Checa os eventos
         for eventos in pygame.event.get():
-
-            #Movimento da Camera pelo teclado
+            
+            
+            #Camera
             teclas = pygame.key.get_pressed()
             if teclas[pygame.K_LEFT]:
                 cam_coluna = cam_coluna - 1
@@ -46,19 +49,39 @@ def main():
                 cam_linha = cam_linha - 1
             if teclas[pygame.K_DOWN]:
                 cam_linha = cam_linha + 1
+
+            #Personagem
+            if eventos.type == pygame.KEYDOWN:
+                if teclas[pygame.K_w]:
+                    npc_campones.y -= 1
+                    
+                if teclas[pygame.K_s]:
+                    npc_campones.y += 1
+                   
+                if teclas[pygame.K_a]:
+                    npc_campones.x -= 1
+                    
+                if teclas[pygame.K_d]:
+                    npc_campones.x += 1
+                
+            
                 
             #Fechando o Loop
             if eventos.type == pygame.QUIT:
                 loop = False
 
-        #Desenha o mapa
+        #Mapa
+
         desenhar_mapa(tela, mapa, cam_coluna, cam_linha, mapa_coluna, mapa_linha)
-
-        #Desenha o npc
-        npc_campones.desenhar(tela, cam_coluna, cam_linha)
-
+        
         #Fps
         clock.tick(60)
+
+        #Npc
+        npc_campones.desenhar(tela, cam_coluna, cam_linha)
+        
+
+        
 
         #Executa o que foi processado
         pygame.display.flip() 
