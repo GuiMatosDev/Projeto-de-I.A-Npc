@@ -26,7 +26,6 @@ def main():
         #Checa os eventos
         for eventos in pygame.event.get():
             
-            
             #Camera
             teclas = pygame.key.get_pressed()
             cam_coluna, cam_linha = cam_mov(teclas, cam_coluna, cam_linha)
@@ -39,7 +38,7 @@ def main():
         desenhar_mapa(tela, mapa, cam_coluna, cam_linha, mapa_coluna, mapa_linha)
         
         #Npc
-        npc_campones.mover(teclas)
+        npc_campones.mover_teclado(teclas, mapa)
         npc_campones.desenhar(tela, cam_coluna, cam_linha)
 
         
