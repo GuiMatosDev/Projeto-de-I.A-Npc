@@ -1,0 +1,15 @@
+# Ignorar caches do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignorar arquivos de ambiente virtual
+venv/
+env/
+.venv/
+.env/
+
+# Ignorar arquivos temporários
+*.log
+*.sqlite3
