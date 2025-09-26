@@ -15,3 +15,5 @@ cor_debug = (200, 200, 50)
 cor_personagem = (255, 0, 0) #Temporário
 
 debug = False
+
+

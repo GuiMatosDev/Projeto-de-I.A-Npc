@@ -6,8 +6,10 @@ from config import fundo, cor_da_grade, cor_debug, debug
 def criar_mapa(colunas, linhas):
     mapa = [[ 0 for x in range(colunas)] for y in range(linhas)]
     
-        #grid[0][0] = 1 debub - excluir depois
-    
+    #Debug
+    for linha in range(3,15):
+        mapa[10][linha] = 1
+            
     return mapa
 
 #Desenhando    

@@ -13,6 +13,25 @@ class campones:
         self.altura = tamanho_da_celula * 2
         self.cor = (0, 0, 255)
 
+        #Velocidade
+        self.velocidade = 1
+
+        #
+
+    def mover(self, teclas):
+
+        if teclas[pygame.K_w]:
+            self.y -= self.velocidade
+                    
+        if teclas[pygame.K_s]:
+            self.y += self.velocidade
+                   
+        if teclas[pygame.K_a]:
+            self.x -= self.velocidade
+                    
+        if teclas[pygame.K_d]:
+            self.x += self.velocidade
+
     def desenhar(self, tela, cam_coluna, cam_linha):
 
         #Posicão[x][y] para pixels na tela
