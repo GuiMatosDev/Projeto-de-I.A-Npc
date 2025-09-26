@@ -28,6 +28,7 @@ A ideia central é criar um ambiente controlado, onde será possível observar c
 ## 🏗️ Estrutura do Projeto
 
 ```
+├──gitignore	     #Desconsiderações
 ├──READme.md	     #Documentação
 ├──camera.py         #Visão do usuário
 ├──config.py         #Configurações
